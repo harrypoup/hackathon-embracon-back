@@ -1,9 +1,8 @@
 package com.embracon.model;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
@@ -14,16 +13,17 @@ public class Parcela {
 	@Id
 	private Long id;
 	private boolean status;
-	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "CONSORCIO_ID")
+
+	@ManyToOne(cascade = CascadeType.ALL)
 	private Consorcio consorcio;
 
-	public Parcela() { }
-			
 	public Parcela(Long id, boolean status) {
-		super();
 		this.id = id;
 		this.status = status;
+	}
+
+	public Parcela() {
+
 	}
 
 	public Long getId() {

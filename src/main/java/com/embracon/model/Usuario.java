@@ -17,21 +17,24 @@ public class Usuario {
 	private Long id;
 	private String usuario;
 	private String senha;
-	@Enumerated(EnumType.STRING)
+	
+	@Enumerated(EnumType.ORDINAL)
 	private EnumTipoUsuario tipo;
+	
 	@OneToOne
 	@JsonIgnore
 	private Cliente cliente;
 
-	public Usuario() { }
-			
 	public Usuario(Long id, String usuario, String senha, EnumTipoUsuario tipo, Cliente cliente) {
-		super();
 		this.id = id;
 		this.usuario = usuario;
 		this.senha = senha;
 		this.tipo = tipo;
 		this.cliente = cliente;
+	}
+	
+	public Usuario() {
+		
 	}
 
 	public Long getId() {

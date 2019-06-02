@@ -4,7 +4,9 @@ import java.util.List;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -18,14 +20,12 @@ public class Cliente {
 	private String email;
 	private String idade;
 	private String telefone;
-	@OneToMany(mappedBy = "cliente")
-	private List<Consorcio> consorcios;
-	
-	public Cliente() { }
 
-	public Cliente(Long id, String nome, String cpf, String email, String idade, String telefone,
-			List<Consorcio> consorcios) {
-		super();
+	@ManyToMany
+	@JoinTable(name = "CLIENTE_CONSORCIO", joinColumns = @JoinColumn(name = "CLIENTE_ID", referencedColumnName = "ID"), inverseJoinColumns = @JoinColumn(name = "CONSORCIO_ID", referencedColumnName = "ID"))
+	private List<Consorcio> consorcios;
+
+	public Cliente(Long id, String nome, String cpf, String email, String idade, String telefone, List<Consorcio> consorcios) {
 		this.id = id;
 		this.nome = nome;
 		this.cpf = cpf;
@@ -33,6 +33,10 @@ public class Cliente {
 		this.idade = idade;
 		this.telefone = telefone;
 		this.consorcios = consorcios;
+	}
+
+	public Cliente() {
+
 	}
 
 	public Long getId() {

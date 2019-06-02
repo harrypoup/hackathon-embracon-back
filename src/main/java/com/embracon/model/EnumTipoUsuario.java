@@ -4,10 +4,14 @@ public enum EnumTipoUsuario {
 
 	CONSORCIADO(0), CPF(1), CPF_INADIMPLENTE(2);
 
-	public int valorCarta;
+	private final int tipoUsuario;
 
-	EnumTipoUsuario(int valor) {
-		valorCarta = valor;
+	private EnumTipoUsuario(int tipoUsuario) {
+		this.tipoUsuario = tipoUsuario;
+	}
+
+	public int getTipoUsuario() {
+		return tipoUsuario;
 	}
 
 }

@@ -8,10 +8,7 @@ public class Sonho {
 	private String descricao;
 	private BigDecimal valorSonho;
 
-	public Sonho() { }
-	
 	public Sonho(Long id, String descricao, BigDecimal valorSonho) {
-		super();
 		this.id = id;
 		this.descricao = descricao;
 		this.valorSonho = valorSonho;

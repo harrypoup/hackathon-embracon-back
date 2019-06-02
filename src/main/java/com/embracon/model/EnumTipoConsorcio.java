@@ -4,10 +4,14 @@ public enum EnumTipoConsorcio {
 
 	MOTO(0), CARRO(1), CASA(2), OUTROS(3);
 
-	public int tipoConsorcio;
+	private final int tipoConsorcio;
 
-	EnumTipoConsorcio(int valor) {
-		tipoConsorcio = valor;
+	private EnumTipoConsorcio(int tipoConsorcio) {
+		this.tipoConsorcio = tipoConsorcio;
+	}
+
+	public int getTipoConsorcio() {
+		return tipoConsorcio;
 	}
 
 }

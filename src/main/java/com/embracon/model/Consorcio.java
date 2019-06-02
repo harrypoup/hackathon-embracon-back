@@ -1,15 +1,9 @@
 package com.embracon.model;
 
-import java.util.List;
-
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
-import javax.persistence.FetchType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -19,24 +13,18 @@ public class Consorcio {
 	@Id
 	private Long id;
 	private String descricao;
-	@Enumerated(EnumType.STRING)
-	private EnumTipoConsorcio tipoConsorcio;
-	
-	@OneToMany(mappedBy = "consorcio")
-	private List<Parcela> parcelas;
-	
-	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "CLIENTE_ID")
-	private Cliente cliente;
 
-	public Consorcio() { }
-	
-	public Consorcio(Long id, String descricao, EnumTipoConsorcio tipoConsorcio, List<Parcela> parcelas) {
-		super();
+	@Enumerated(EnumType.ORDINAL)
+	private EnumTipoConsorcio tipoConsorcio;
+
+	public Consorcio(Long id, String descricao, EnumTipoConsorcio tipoConsorcio) {
 		this.id = id;
 		this.descricao = descricao;
 		this.tipoConsorcio = tipoConsorcio;
-		this.parcelas = parcelas;
+	}
+
+	public Consorcio() {
+
 	}
 
 	public Long getId() {
@@ -61,14 +49,6 @@ public class Consorcio {
 
 	public void setTipoConsorcio(EnumTipoConsorcio tipoConsorcio) {
 		this.tipoConsorcio = tipoConsorcio;
-	}
-
-	public List<Parcela> getParcelas() {
-		return parcelas;
-	}
-
-	public void setParcelas(List<Parcela> parcelas) {
-		this.parcelas = parcelas;
 	}
 
 }
