@@ -2,17 +2,27 @@ package com.embracon.model;
 
 import java.util.List;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "clientes")
 public class Cliente {
 
+	@Id
 	private Long id;
 	private String nome;
 	private String cpf;
 	private String email;
 	private String idade;
 	private String telefone;
+	@OneToMany(mappedBy = "cliente")
 	private List<Consorcio> consorcios;
 
-	public Cliente(Long id, String nome, String cpf, String email, String idade, String telefone, List<Consorcio> consorcios) {
+	public Cliente(Long id, String nome, String cpf, String email, String idade, String telefone,
+			List<Consorcio> consorcios) {
 		super();
 		this.id = id;
 		this.nome = nome;

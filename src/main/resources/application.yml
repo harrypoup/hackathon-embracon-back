@@ -1,5 +1,0 @@
-basepackages: com.embracon
-
-server: 
-    port: 8080
-    contextPath: /harrypoup

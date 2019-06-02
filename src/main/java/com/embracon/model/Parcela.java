@@ -1,9 +1,22 @@
 package com.embracon.model;
 
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "parcela")
 public class Parcela {
 
+	@Id
 	private Long id;
 	private boolean status;
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "CONSORCIO_ID")
+	private Consorcio consorcio;
 
 	public Parcela(Long id, boolean status) {
 		super();
@@ -25,6 +38,14 @@ public class Parcela {
 
 	public void setStatus(boolean status) {
 		this.status = status;
+	}
+
+	public Consorcio getConsorcio() {
+		return consorcio;
+	}
+
+	public void setConsorcio(Consorcio consorcio) {
+		this.consorcio = consorcio;
 	}
 
 }

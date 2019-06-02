@@ -1,16 +1,25 @@
 package com.embracon.model;
 
+import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
+import javax.persistence.Id;
+import javax.persistence.OneToOne;
+import javax.persistence.Table;
+
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
-//@Entity
-//@Table(name = "User")
+@Entity
+@Table(name = "usuarios")
 public class Usuario {
 
-//	@Id
+	@Id
 	private Long id;
 	private String usuario;
 	private String senha;
+	@Enumerated(EnumType.STRING)
 	private EnumTipoUsuario tipo;
+	@OneToOne
 	@JsonIgnore
 	private Cliente cliente;
 

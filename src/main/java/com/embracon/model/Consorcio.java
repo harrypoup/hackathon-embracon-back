@@ -2,12 +2,32 @@ package com.embracon.model;
 
 import java.util.List;
 
+import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
+import javax.persistence.FetchType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "consorcio")
 public class Consorcio {
 
+	@Id
 	private Long id;
 	private String descricao;
+	@Enumerated(EnumType.STRING)
 	private EnumTipoConsorcio tipoConsorcio;
+	
+	@OneToMany(mappedBy = "consorcio")
 	private List<Parcela> parcelas;
+	
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "CLIENTE_ID")
+	private Cliente cliente;
 
 	public Consorcio(Long id, String descricao, EnumTipoConsorcio tipoConsorcio, List<Parcela> parcelas) {
 		super();
