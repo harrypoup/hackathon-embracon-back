@@ -1,9 +1,7 @@
 package com.embracon.model;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.Id;
-import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -13,9 +11,6 @@ public class Parcela {
 	@Id
 	private Long id;
 	private boolean status;
-
-	@ManyToOne(cascade = CascadeType.ALL)
-	private Consorcio consorcio;
 
 	public Parcela(Long id, boolean status) {
 		this.id = id;
@@ -40,14 +35,6 @@ public class Parcela {
 
 	public void setStatus(boolean status) {
 		this.status = status;
-	}
-
-	public Consorcio getConsorcio() {
-		return consorcio;
-	}
-
-	public void setConsorcio(Consorcio consorcio) {
-		this.consorcio = consorcio;
 	}
 
 }

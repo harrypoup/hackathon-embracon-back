@@ -1,9 +1,14 @@
 package com.embracon.model;
 
+import java.util.List;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -16,6 +21,10 @@ public class Consorcio {
 
 	@Enumerated(EnumType.ORDINAL)
 	private EnumTipoConsorcio tipoConsorcio;
+
+	@OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
+	@JoinColumn(name = "consorcio_id")
+	private List<Parcela> parcelas;
 
 	public Consorcio(Long id, String descricao, EnumTipoConsorcio tipoConsorcio) {
 		this.id = id;
@@ -49,6 +58,14 @@ public class Consorcio {
 
 	public void setTipoConsorcio(EnumTipoConsorcio tipoConsorcio) {
 		this.tipoConsorcio = tipoConsorcio;
+	}
+
+	public List<Parcela> getParcelas() {
+		return parcelas;
+	}
+
+	public void setParcelas(List<Parcela> parcelas) {
+		this.parcelas = parcelas;
 	}
 
 }
