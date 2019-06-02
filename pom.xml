@@ -20,6 +20,7 @@
 	<properties>
 		<ibecore.version>1.0.0-SNAPSHOT</ibecore.version>
 		<java.version>1.8</java.version>
+		<postgre.version>9.1-901-1.jdbc4</postgre.version>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 	</properties>
 
@@ -52,17 +53,33 @@
 
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-actuator</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-data-jpa</artifactId>
 		</dependency>
-		
+
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-thymeleaf</artifactId>
+		</dependency>
+
 		<dependency>
 			<groupId>mysql</groupId>
 			<artifactId>mysql-connector-java</artifactId>
 		</dependency>
-		
+
 		<dependency>
 			<groupId>com.h2database</groupId>
 			<artifactId>h2</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>postgresql</groupId>
+			<artifactId>postgresql</artifactId>
+			<version>${postgre.version}</version>
 		</dependency>
 
 	</dependencies>
@@ -75,16 +92,5 @@
 			</plugin>
 		</plugins>
 	</build>
-
-	<distributionManagement>
-		<repository>
-			<id>santander-release-repo</id>
-			<url>${env.NEXUS_ADDRESS}/repository/maven-releases/</url>
-		</repository>
-		<snapshotRepository>
-			<id>santander-snapshots-repo</id>
-			<url>${env.NEXUS_ADDRESS}/repository/maven-snapshots/</url>
-		</snapshotRepository>
-	</distributionManagement>
 
 </project>

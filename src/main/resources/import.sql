@@ -10,7 +10,7 @@ insert into parcela (id, status, consorcio_id) values (5, true, 2);
 insert into parcela (id, status, consorcio_id) values (6, true, 2);
 insert into parcela (id, status, consorcio_id) values (7, true, 2);
 insert into parcela (id, status, consorcio_id) values (8, true, 2);
-insert into parcela (id, status, consorcio_id) values (8, true, 2);
+insert into parcela (id, status, consorcio_id) values (9, true, 2);
 insert into parcela (id, status, consorcio_id) values (10, false, 2);
 insert into usuarios (id, senha, tipo, usuario, cliente_id) values (1,'123456', '2', 'enoqueleal', 1);
 insert into usuarios (id, senha, tipo, usuario, cliente_id) values (2,'654321', '2', 'joseroberto', 2);
