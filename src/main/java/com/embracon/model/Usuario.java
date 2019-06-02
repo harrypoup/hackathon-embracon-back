@@ -23,6 +23,8 @@ public class Usuario {
 	@JsonIgnore
 	private Cliente cliente;
 
+	public Usuario() { }
+			
 	public Usuario(Long id, String usuario, String senha, EnumTipoUsuario tipo, Cliente cliente) {
 		super();
 		this.id = id;

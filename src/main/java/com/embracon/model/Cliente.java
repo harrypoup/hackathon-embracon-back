@@ -20,6 +20,8 @@ public class Cliente {
 	private String telefone;
 	@OneToMany(mappedBy = "cliente")
 	private List<Consorcio> consorcios;
+	
+	public Cliente() { }
 
 	public Cliente(Long id, String nome, String cpf, String email, String idade, String telefone,
 			List<Consorcio> consorcios) {

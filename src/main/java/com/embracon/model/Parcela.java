@@ -18,6 +18,8 @@ public class Parcela {
 	@JoinColumn(name = "CONSORCIO_ID")
 	private Consorcio consorcio;
 
+	public Parcela() { }
+			
 	public Parcela(Long id, boolean status) {
 		super();
 		this.id = id;

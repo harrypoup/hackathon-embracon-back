@@ -29,6 +29,8 @@ public class Consorcio {
 	@JoinColumn(name = "CLIENTE_ID")
 	private Cliente cliente;
 
+	public Consorcio() { }
+	
 	public Consorcio(Long id, String descricao, EnumTipoConsorcio tipoConsorcio, List<Parcela> parcelas) {
 		super();
 		this.id = id;
