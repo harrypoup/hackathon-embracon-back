@@ -1,7 +1,6 @@
 # HarryPoup API
-============
 
-<p align="center"><img style="width: 100px;" src="https://harry-poup.herokuapp.com/static/media/logo.ed0f1c15.jpeg"></p>
+<p align="center"><img src="https://harry-poup.herokuapp.com/static/media/logo.ed0f1c15.jpeg"></p>
 
 <p align="center">
 <a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
